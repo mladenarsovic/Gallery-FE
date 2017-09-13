@@ -19,7 +19,7 @@ export class LoginComponent {
         console.log(email, password);
         this.auth.login(email, password).subscribe((token: string) => {
             console.log(token);
-            this.router.navigateByUrl('/galleries');
+            this.router.navigateByUrl('/');
         }, (error) => {
             console.log(error.error);
             alert(`${error.error}`); 

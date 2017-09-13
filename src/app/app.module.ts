@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
+import { CustomFormsModule } from 'ng2-validation'
 
 import { AppComponent } from './app.component';
 import { LayoutComponent } from './components/layout/layout.component';
@@ -15,6 +16,7 @@ import { FormGalleryComponent } from './components/galleries/form-gallery/form-g
 import { GalleriesService } from './shared/services/galleries.service';
 import { AuthService } from './shared/services/auth.service';
 import { UsersService } from './shared/services/users.service';
+import { FilterPipe } from './shared/pipes/filter.pipe';
 
 
 @NgModule({
@@ -24,14 +26,16 @@ import { UsersService } from './shared/services/users.service';
     GalleriesComponent,
     LoginComponent,
     RegisterComponent,
-    FormGalleryComponent    
+    FormGalleryComponent,
+    FilterPipe    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    SharedModule
+    SharedModule,
+    CustomFormsModule
   ],
   providers: [GalleriesService, AuthService, UsersService],
   bootstrap: [AppComponent]

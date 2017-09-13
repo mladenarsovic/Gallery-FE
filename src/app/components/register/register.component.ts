@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from '../../shared/services/users.service';
+import { Router } from '@angular/router';
 
 import { Users } from '../../shared/models/users.model';
 
@@ -14,12 +15,14 @@ export class RegisterComponent implements OnInit {
   
     private newUser: Users = new Users();
   
-    constructor(private userService: UsersService) { }
+    constructor(private userService: UsersService,
+                private router: Router ) { }
   
   
   
     addUser(newUser){
       this.userService.addUsers(newUser).subscribe();
+      this.router.navigateByUrl('/');
     }
   
     checked(){

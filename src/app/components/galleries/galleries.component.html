@@ -20,6 +20,11 @@
   </tbody>
 </table> -->
 
+<div class="input-group col-md-5 pl-0 my-lg-4 my-2">
+  <span class="input-group-addon">Filter By name</span>
+  <input [(ngModel)]="filter" type="text" class="form-control"/>
+</div>
+
 <div class="jumbotron" *ngFor="let gallery of galleries">
   <div class="col-sm-5 mx-auto">
     <h2>{{ gallery.name }}</h2>
@@ -30,6 +35,5 @@
     </p>
   </div>
 </div>
-<div class="jumbotron">
 
-</div>
+<button class="btn btn-primary">Load more</button>

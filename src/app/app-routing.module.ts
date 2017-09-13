@@ -13,7 +13,7 @@ import { GuestGuard } from './shared/guards/guest.guard';
 const appRoutes = [
   {
     path: '',
-    redirectTo: '/galleries',
+    redirectTo: 'galleries',
     pathMatch: 'full'
   },
   {

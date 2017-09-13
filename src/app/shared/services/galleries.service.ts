@@ -6,6 +6,7 @@ import { AuthService } from './auth.service';
 import { Gallery } from '../../shared/models/gallery.model';
 
 @Injectable()
+
 export class GalleriesService {
 
   private gallery: Gallery[] = [];
@@ -26,6 +27,10 @@ export class GalleriesService {
           return observer.complete();
         })
       })
+    }
+
+    addGallery() {
+      
     }
 
 }

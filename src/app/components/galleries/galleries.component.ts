@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
 import { GalleriesService } from '../../shared/services/galleries.service';
 import { Gallery } from '../../shared/models/gallery.model';
-
+import { FilterPipe } from '../../shared/pipes/filter.pipe';
 
 @Component({
   selector: 'app-galleries',
@@ -12,6 +12,8 @@ import { Gallery } from '../../shared/models/gallery.model';
 export class GalleriesComponent implements OnInit {
 
   private galleries: Gallery[] = [];
+
+  
   
     constructor(private galleryService: GalleriesService) { }
   
