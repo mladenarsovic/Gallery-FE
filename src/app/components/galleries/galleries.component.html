@@ -1,0 +1,35 @@
+<h1>Galleries</h1>
+
+<!-- <table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>List of URLs</th>
+      <th>User</th>      
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let gallery of galleries">
+      <td class="align-middle">{{ gallery.name }}</td>
+      <td class="align-middle">{{ gallery.description}}</td>
+      <td class="align-middle">{{ gallery.url_list}}</td> 
+      <td class="align-middle">{{ gallery.user_id}}</td>
+    </tr>
+  </tbody>
+</table> -->
+
+<div class="jumbotron" *ngFor="let gallery of galleries">
+  <div class="col-sm-5 mx-auto">
+    <h2>{{ gallery.name }}</h2>
+    <p>{{ gallery.description }}</p>
+    <img src="{{ gallery.imageUrl }}" alt="{{ gallery.imageUrl }}">
+    <p>
+      <a class="btn btn-primary" href="#" role="button">View more &raquo;</a>
+    </p>
+  </div>
+</div>
+<div class="jumbotron">
+
+</div>

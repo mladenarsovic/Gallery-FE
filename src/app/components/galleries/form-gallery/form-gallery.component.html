@@ -1,0 +1,50 @@
+<form>
+    
+        <h2>Create new gallery</h2>
+    
+          
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" name="name">
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea class="form-control" id="description" name="description" rows="10"></textarea>
+        </div>
+    
+        <div class="form-group">
+            <label for="image-url">Add an image</label>
+            <div class="input-group">
+                <span class="input-group-btn">
+                        <button class="input-group-addon btn" type="button">Up</button>
+                  </span>
+                  <span class="input-group-btn">
+                        <button class="input-group-addon btn" type="button">Down</button>
+                  </span>
+    
+                  <input type="text" id="image-url" name="image-url" class="form-control" placeholder="image url">
+                  <span class="input-group-btn">
+                    <button class="input-group-addon btn btn-danger" type="button">Remove</button>
+                </span>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <button type="button" class="input-group-addon btn btn-outline-primary btn-block">Add another image</button>
+        </div>
+    
+        <hr>
+    
+        <div class="row">
+            <div class="form-group col">
+                <button type="submit" class="btn btn-outline-primary btn-block form-control">Cancel</button>
+            </div>
+    
+            <div class="form-group col">
+                <button type="submit" class="btn btn-primary btn-block">Submit</button>
+            </div>
+        </div>
+    
+        
+    </form>
+    
