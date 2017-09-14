@@ -19,6 +19,7 @@ import { AuthService } from './shared/services/auth.service';
 import { UsersService } from './shared/services/users.service';
 import { FilterPipe } from './shared/pipes/filter.pipe';
 import { SingleGalleryComponent } from './components/galleries/single-gallery/single-gallery.component';
+import { MyGalleryComponent } from './components/galleries/my-gallery/my-gallery.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { SingleGalleryComponent } from './components/galleries/single-gallery/si
     FormGalleryComponent,
     FilterPipe,
     GalleriesRowComponent,
-    SingleGalleryComponent    
+    SingleGalleryComponent,
+    MyGalleryComponent    
   ],
   imports: [
     BrowserModule,

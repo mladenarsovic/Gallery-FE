@@ -5,6 +5,9 @@
       <a class="nav-link" routerLink="/" routerLinkActive="active">All Galleries</a>
     </li>
     <li class="nav-item" *ngIf="auth.isAuthenticated">
+        <a class="nav-link" routerLink="/my-gallery" routerLinkActive="active">My Gallery</a>
+    </li>
+    <li class="nav-item" *ngIf="auth.isAuthenticated">
       <a class="nav-link" routerLink="/create" routerLinkActive="active">Add Gallery</a>
     </li>
     <li class="nav-item" *ngIf="!auth.isAuthenticated">

@@ -1,17 +1,15 @@
-<div class="album text-muted">
+<div class="album ">
     <div class="container">
       <h3>{{ gallery.name }}</h3>
       <p>{{ gallery.description }}</p>
       <h4>Author:</h4>
-      <strong>First Name : </strong>{{ gallery.user.first_name}}<br>
+      <strong>First Name : </strong>{{ gallery.user.first_name }}<br>
       <strong>Last name : </strong>{{ gallery.user.last_name }}<br>
-      <strong>Email : </strong>{{ gallery.user.email }}<br>
-      <!-- <div *ngFor="let comment of gallery.comments">
-          <p>{{ comment.content }}</p>
-      </div> -->
+      <strong>Email : </strong>{{ gallery.user.email }}<br><br>
+      
       <div class="row" >
         <div class="card" *ngFor="let gall of gallery.images">
-          <img data-src="{{ gall.image_url }}" alt="{{gallery.name}}" style="width:150px; height: 150px">
+          <img data-src="{{ gall.image_url }}" alt="{{gallery.name}}" style="width:200px; height: 150px">
         </div>
       <div>
 </div>

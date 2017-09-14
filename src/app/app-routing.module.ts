@@ -7,6 +7,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent} from './components/register/register.component';
 import { FormGalleryComponent } from './components/galleries/form-gallery/form-gallery.component';
 import { SingleGalleryComponent } from './components/galleries/single-gallery/single-gallery.component';
+import { MyGalleryComponent } from './components/galleries/my-gallery/my-gallery.component';
 
 import { AuthGuard } from './shared/guards/auth.guard';
 import { GuestGuard } from './shared/guards/guest.guard';
@@ -40,6 +41,11 @@ const appRoutes = [
     path: 'create',
     component: FormGalleryComponent
   },
+  {
+    path: 'my-gallery',
+    component: MyGalleryComponent
+  },
+  
   // {
   //   path: 'add-gallery',
   //   component: FormGalleryComponent,
