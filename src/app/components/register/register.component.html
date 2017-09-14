@@ -2,7 +2,7 @@
 
 <form #registerForm="ngForm" (ngSubmit)="addUser(newUser); registerForm.reset()">  
     <div class="form-group">
-      <label>First name</label>
+      <label>First name<span style="color:red">*</span></label>
       <input #firstName="ngModel" [(ngModel)]="newUser.firstName" class="form-control" type="text" name="firstName" required minlength="3">
     </div>
 
@@ -16,7 +16,7 @@
     </div>
     
     <div class="form-group">
-      <label >Last name</label>
+      <label >Last name<span style="color:red">*</span></label>
       <input #lastName="ngModel" [(ngModel)]="newUser.lastName" type="text" class="form-control" name="lastName" required minlength="3">
     </div>
 
@@ -30,7 +30,7 @@
           </div>
 
     <div class="form-group">
-      <label >Email</label>
+      <label >Email<span style="color:red">*</span></label>
       <input #email="ngModel" [(ngModel)]="newUser.email" type="text" class="form-control"  name="email" required email>
     </div>
 
@@ -74,11 +74,10 @@
            </div>
 
 
-    <div class="form-group">
-      <label class="custom-control custom-checkbox">
-        <input type="checkbox" (click)="checked()" class="custom-control-input" name="terms-and-conditions">
-        <span class="custom-control-indicator" ></span>
-        <span class="custom-control-description" >Accept terms and conditions</span>
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" (click)="checked()"  name="terms-and-conditions">
+        Accept terms and conditions
       </label>
     </div>
 

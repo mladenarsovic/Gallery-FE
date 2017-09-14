@@ -1,15 +1,15 @@
-<form>
-    
-        <h2>Create new gallery</h2>
-    
+
+<h2>Create new gallery</h2>
+
+<form class="galleryForm" (ngSubmit)="addGallery(newGalery)">         
           
         <div class="form-group">
             <label for="name">Name</label>
-            <input type="text" class="form-control" id="name" name="name">
+            <input [(ngModel)]="newGalery.name" type="text" class="form-control" id="name" name="name">
         </div>
         <div class="form-group">
             <label for="description">Description</label>
-            <textarea class="form-control" id="description" name="description" rows="10"></textarea>
+            <input [(ngModel)]="newGalery.description" type="text" class="form-control" id="description" name="description" >
         </div>
     
         <div class="form-group">

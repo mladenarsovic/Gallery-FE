@@ -18,7 +18,7 @@ export class GalleriesComponent implements OnInit {
     constructor(private galleryService: GalleriesService) { }
   
     ngOnInit() {
-      this.galleryService.getGalery().subscribe(
+      this.galleryService.getGallery().subscribe(
         (value) => {
           this.galleries = value
         },(err: HttpErrorResponse)=>{
@@ -27,6 +27,10 @@ export class GalleriesComponent implements OnInit {
   
   
       );
+    }
+
+    load() {
+        
     }
 
 }

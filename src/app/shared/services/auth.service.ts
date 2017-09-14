@@ -32,7 +32,7 @@ export class AuthService {
     });
   }
 
-  logout(urlName = 'login'){
+  logout(urlName = 'galleries'){
     window.localStorage.removeItem('token');
     this.isAuthenticated = false;
     this.router.navigateByUrl(urlName);
@@ -41,6 +41,10 @@ export class AuthService {
   getRequestHeaders(){
     let token = window.localStorage.getItem('token');
     return new HttpHeaders().set('Authorization', `Bearer ${token}`);
+}
+ 
+public getUsername() {
+    return JSON.parse(localStorage.getItem('user'));
 }
 
 }

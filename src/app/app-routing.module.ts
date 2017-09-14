@@ -6,6 +6,7 @@ import { GalleriesComponent } from './components/galleries/galleries.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent} from './components/register/register.component';
 import { FormGalleryComponent } from './components/galleries/form-gallery/form-gallery.component';
+import { SingleGalleryComponent } from './components/galleries/single-gallery/single-gallery.component';
 
 import { AuthGuard } from './shared/guards/auth.guard';
 import { GuestGuard } from './shared/guards/guest.guard';
@@ -19,7 +20,11 @@ const appRoutes = [
   {
     path: 'galleries',
     component: GalleriesComponent,
-    canActivate: [ AuthGuard ] 
+    // canActivate: [ AuthGuard ] 
+  },
+  {
+    path: 'galleries/:id',
+    component: SingleGalleryComponent,
   },
   {
         path: 'login',

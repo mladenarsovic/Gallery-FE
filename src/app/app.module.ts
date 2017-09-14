@@ -12,11 +12,13 @@ import { GalleriesComponent } from './components/galleries/galleries.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { FormGalleryComponent } from './components/galleries/form-gallery/form-gallery.component';
+import { GalleriesRowComponent } from './components/galleries/galleries-row/galleries-row.component';
 
 import { GalleriesService } from './shared/services/galleries.service';
 import { AuthService } from './shared/services/auth.service';
 import { UsersService } from './shared/services/users.service';
 import { FilterPipe } from './shared/pipes/filter.pipe';
+import { SingleGalleryComponent } from './components/galleries/single-gallery/single-gallery.component';
 
 
 @NgModule({
@@ -27,7 +29,9 @@ import { FilterPipe } from './shared/pipes/filter.pipe';
     LoginComponent,
     RegisterComponent,
     FormGalleryComponent,
-    FilterPipe    
+    FilterPipe,
+    GalleriesRowComponent,
+    SingleGalleryComponent    
   ],
   imports: [
     BrowserModule,

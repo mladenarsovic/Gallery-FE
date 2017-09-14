@@ -3,7 +3,7 @@ export class Gallery{
         public id?: number,
         public name?: string,
         public description?: string,
-        public imageUrl?: string,
+        public images?:any[],
         public userId?: number,
     ){}
 }

@@ -1,39 +1,25 @@
-<h1>Galleries</h1>
-
-<!-- <table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>List of URLs</th>
-      <th>User</th>      
-    </tr>
-  </thead>
-
-  <tbody>
-    <tr *ngFor="let gallery of galleries">
-      <td class="align-middle">{{ gallery.name }}</td>
-      <td class="align-middle">{{ gallery.description}}</td>
-      <td class="align-middle">{{ gallery.url_list}}</td> 
-      <td class="align-middle">{{ gallery.user_id}}</td>
-    </tr>
-  </tbody>
-</table> -->
+<div class="row">
+  <h1>Galleries</h1>
+</div>
 
 <div class="input-group col-md-5 pl-0 my-lg-4 my-2">
   <span class="input-group-addon">Filter By name</span>
   <input [(ngModel)]="filter" type="text" class="form-control"/>
 </div>
 
-<div class="jumbotron" *ngFor="let gallery of galleries">
+<div class="row"
+  *ngFor="let gallery of galleries"
+  [galleryRow]="gallery">
+
+</div>
+
+<!-- <div class="jumbotron" *ngFor="let gallery of galleries">
   <div class="col-sm-5 mx-auto">
     <h2>{{ gallery.name }}</h2>
     <p>{{ gallery.description }}</p>
-    <img src="{{ gallery.imageUrl }}" alt="{{ gallery.imageUrl }}">
-    <p>
-      <a class="btn btn-primary" href="#" role="button">View more &raquo;</a>
-    </p>
+    <img src="{{gallery.imageUrl[0].image_url}}" alt="{{ gallery.imageUrl }}" height="200" width="300">
+    
   </div>
-</div>
+</div> -->
 
-<button class="btn btn-primary">Load more</button>
+<button class="btn btn-primary" (click)="load()">Load more</button>
