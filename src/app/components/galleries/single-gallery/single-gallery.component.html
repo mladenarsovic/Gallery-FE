@@ -3,9 +3,9 @@
       <h3>{{ gallery.name }}</h3>
       <p>{{ gallery.description }}</p>
       <h4>Author:</h4>
-      <strong>First Name : </strong>{{ gallery.user.first_name }}<br>
-      <strong>Last name : </strong>{{ gallery.user.last_name }}<br>
-      <strong>Email : </strong>{{ gallery.user.email }}<br><br>
+      <strong>First Name : </strong>{{ gallery.user?.first_name }}<br>
+      <strong>Last name : </strong>{{ gallery.user?.last_name }}<br>
+      <strong>Email : </strong>{{ gallery.user?.email }}<br><br>
       
       <div class="row" >
         <div class="card" *ngFor="let gall of gallery.images">

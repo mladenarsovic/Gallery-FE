@@ -53,12 +53,11 @@ export class GalleriesService {
           headers: this.authService.getRequestHeaders()
         })
         .subscribe((gallery: any) => {
-          let existing = this.gallery.filter(c => c.id == id);
-           if (existing.length) {
-                o.next(existing[0]);
+
+             o.next(gallery);
              return o.complete();
-        }
-      });
+        })
+      
       });
     }
 
