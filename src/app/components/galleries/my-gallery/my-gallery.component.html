@@ -1,3 +1,12 @@
-<p>
-  my-gallery works!
-</p>
+<div class="row">
+    <div class="col-lg-4" *ngFor="let myGallery of gallery">
+      <h2>{{ myGallery.name }}</h2>
+      <p>{{ myGallery.description }}</p>
+    <img  src="{{ myGallery.imagesUrl[0].image_url }}" alt="{{ gallery.name }}" width="140" height="140"><br>
+    <br>
+    <p>
+      <a class="btn btn-primary"  [routerLink]="['/galleries', myGallery.id]" role="button">View details</a>
+    </p>
+    <!-- <button (click)="remove(myGallery)">Delete</button><button>Edit</button> -->
+  </div>
+</div>

@@ -75,4 +75,20 @@ export class GalleriesService {
       })    
     }
 
+    myGallery(id){
+      return new Observable((observer: Observer<any>)=>{
+        this.http.get('http://localhost:8000/api/users/'+id+'/galleries',{
+          headers: this.authService.getRequestHeaders()
+        })
+        .subscribe((galery: any[])=>{
+          this.gallery = galery.map((galery)=>{
+             return new Gallery(galery.id, galery.name, galery.description,  galery.user, galery.images, galery.comments);
+          });
+          observer.next(this.gallery);
+          return observer.complete();
+        })
+      })
+    }
+  
+
 }
