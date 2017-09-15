@@ -8,8 +8,29 @@
       <strong>Email : </strong>{{ gallery.user?.email }}<br><br>
       
       <div class="row" >
-        <div class="card" *ngFor="let gall of gallery.images">
-          <img data-src="{{ gall.image_url }}" alt="{{gallery.name}}" style="width:200px; height: 150px">
+        <div class="card" *ngFor="let picture of gallery.images">
+          <img data-src="{{ picture.image_url }}" alt="{{gallery.name}}" style="width:200px; height: 150px">
         </div>
       <div>
+  </div>
+</div><br><hr>
+
+
+<form #commentsForm="ngForm" class="group-form" (ngSubmit)="addComment(newComment); commentsForm.reset()">
+    <div class="form-group">
+      
+      <textarea [(ngModel)]="newComment.content"  name='content' type="text" class="form-control" placeholder="Add your comment here" ></textarea>
+    </div>
+      <button  type="submit" class="btn btn-primary">Add comment </button>
+  </form>
+
+<br>
+
+<!-- <div class="row" >
+  <h4>Comments</h4>
 </div>
+<div *ngFor="let comment of gallery.comments">
+  <strong>{{ comment.user.first_name }}</strong>
+  <p>{{ comment.content }}</p>
+  <p>{{ comment.created_at | date }}</p>
+</div> -->

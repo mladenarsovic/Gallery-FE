@@ -43,7 +43,7 @@ export class AuthService {
     return new HttpHeaders().set('Authorization', `Bearer ${token}`);
 }
  
-public getUsername() {
+public getUser() {
     return JSON.parse(localStorage.getItem('user'));
 }
 

@@ -35,7 +35,7 @@ export class FormGalleryComponent implements OnInit {
     newGallery.userId = user.id;
     this.galleryService.addGallery(newGallery).subscribe();
     this.galeryUrl.forEach((images) => {
-       this.galleryService.addPicturesOnGallery(images).subscribe();
+       this.galleryService.addImagesOnGallery(images).subscribe();
     });
   }
 

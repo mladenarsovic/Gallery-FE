@@ -61,13 +61,13 @@ export class GalleriesService {
       });
     }
 
-    public addPicturesOnGallery(pictures){
+    public addImagesOnGallery(images){
       
       return new Observable((observer: Observer<any>)=>{
         this.http.post('http://localhost:8000/api/pictures',{
-          image_url: pictures,
-        }).subscribe((pictures: any)=>{
-          observer.next(pictures);
+          image_url: images,
+        }).subscribe((images: any)=>{
+          observer.next(images);
           return observer.complete();
         })
   

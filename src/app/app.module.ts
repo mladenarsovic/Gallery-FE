@@ -17,9 +17,11 @@ import { GalleriesRowComponent } from './components/galleries/galleries-row/gall
 import { GalleriesService } from './shared/services/galleries.service';
 import { AuthService } from './shared/services/auth.service';
 import { UsersService } from './shared/services/users.service';
+import { CommentsService } from './shared/services/comments.service';
 import { FilterPipe } from './shared/pipes/filter.pipe';
 import { SingleGalleryComponent } from './components/galleries/single-gallery/single-gallery.component';
 import { MyGalleryComponent } from './components/galleries/my-gallery/my-gallery.component';
+import { CommentsComponent } from './components/comments/comments.component';
 
 
 @NgModule({
@@ -33,7 +35,8 @@ import { MyGalleryComponent } from './components/galleries/my-gallery/my-gallery
     FilterPipe,
     GalleriesRowComponent,
     SingleGalleryComponent,
-    MyGalleryComponent    
+    MyGalleryComponent,
+    CommentsComponent    
   ],
   imports: [
     BrowserModule,
@@ -43,7 +46,7 @@ import { MyGalleryComponent } from './components/galleries/my-gallery/my-gallery
     SharedModule,
     CustomFormsModule
   ],
-  providers: [GalleriesService, AuthService, UsersService],
+  providers: [GalleriesService, AuthService, UsersService, CommentsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
