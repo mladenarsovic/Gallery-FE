@@ -9,28 +9,30 @@ export class AuthService {
   public isAuthenticated: boolean;
 
   constructor(private http: HttpClient,
-        private router: Router)
+              private router: Router)
           {
           let token = window.localStorage.getItem('token')
           this.isAuthenticated = !!token;
           }
 
 
-  login(email: string, password: string){
+    login(email: string, password: string){
     return new Observable((observer: Observer<any>) => {
         this.http.post('http://localhost:8000/api/login',{
             email,
             password
-        }).subscribe((data: { token: string}) => {
+        }).subscribe((data: { token: string, user}) => {
             window.localStorage.setItem('token', data.token);
+            localStorage.setItem('user', JSON.stringify(data.user));
+            
             this.isAuthenticated = true;
             observer.next(data.token);
             return observer.complete();
         },(err)=>{
             return observer.error(err);
         });
-    });
-  }
+     });
+    }
 
   logout(urlName = 'galleries'){
     window.localStorage.removeItem('token');
@@ -41,10 +43,11 @@ export class AuthService {
   getRequestHeaders(){
     let token = window.localStorage.getItem('token');
     return new HttpHeaders().set('Authorization', `Bearer ${token}`);
-}
+  }
  
-public getUser() {
-    return JSON.parse(localStorage.getItem('user'));
-}
+    public getUser() {
+        return JSON.parse(localStorage.getItem('user'))
+        
+    }
 
 }

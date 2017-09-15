@@ -17,8 +17,7 @@
 
 
 <form #commentsForm="ngForm" class="group-form" (ngSubmit)="addComment(newComment); commentsForm.reset()">
-    <div class="form-group">
-      
+    <div class="form-group">      
       <textarea [(ngModel)]="newComment.content"  name='content' type="text" class="form-control" placeholder="Add your comment here" ></textarea>
     </div>
       <button  type="submit" class="btn btn-primary">Add comment </button>
@@ -26,11 +25,11 @@
 
 <br>
 
-<!-- <div class="row" >
+<div class="row" >
   <h4>Comments</h4>
 </div>
-<div *ngFor="let comment of gallery.comments">
+<div *ngFor="let comment of gallery?.comments">
   <strong>{{ comment.user.first_name }}</strong>
   <p>{{ comment.content }}</p>
   <p>{{ comment.created_at | date }}</p>
-</div> -->
+</div>

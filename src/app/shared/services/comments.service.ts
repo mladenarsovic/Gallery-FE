@@ -14,20 +14,22 @@ export class CommentsService {
   constructor(private http: HttpClient,
               private authService: AuthService) { }
 
-  addComments(newComments){
+    addComment(newComment){
     return new Observable((observer: Observer<any>)=>{
-      this.http.post('http://localhost:8000/api/comments/',{
-        content: newComments.content,
-        user_id: newComments.userId,
-        galery_id: newComments.galleryId
-      }).subscribe((newComments: any)=>{
+        this.http.post('http://localhost:8000/api/comments/',{
+        content: newComment.content,
+        user_id: newComment.userId,
+        gallery_id: newComment.galleryId
+        },{
+        headers: this.authService.getRequestHeaders()
+        }).subscribe((newComments: any)=>{
         let comment = new Comment(newComments.content, newComments.userId, newComments.galleryId);
         this.comments.push(comment);
         observer.next(comment);
         return observer.complete();
-      },()=>{
+        },()=>{
         alert('Error');
-      });
+        });
     })
   }
 

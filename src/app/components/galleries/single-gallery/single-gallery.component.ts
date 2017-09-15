@@ -17,7 +17,7 @@ export class SingleGalleryComponent implements OnInit {
 
   private gallery={}; 
   private newComment: Comment = new Comment();
-
+  
   constructor(private galleryService: GalleriesService,
               private route: ActivatedRoute,
               private authService: AuthService,
@@ -27,18 +27,19 @@ export class SingleGalleryComponent implements OnInit {
     let id = parseInt(this.route.snapshot.paramMap.get('id'));
     this.galleryService.getGalleryById(id).subscribe(
      data => {
-       this.gallery = data;
-       console.log(this.gallery);
+       this.gallery = data;    
+       console.log(this.gallery);   
      }
    );
+   
   }
 
   addComment(newComment){
     let id = parseInt(this.route.snapshot.paramMap.get('id'));
-    let userId = this.authService.getUser();
+    let userId = this.authService.getUser();  
     newComment.userId = userId.id;
-    newComment.galleryId = id;
-    this.commentsService.addComments(newComment).subscribe();
+    newComment.galleryId = id;    
+    this.commentsService.addComment(newComment).subscribe();
   }
 
 }
