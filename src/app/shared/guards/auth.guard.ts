@@ -4,18 +4,19 @@ import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from
 import { AuthService } from '../services/auth.service';
 
 @Injectable()
+
 export class AuthGuard implements CanActivate {
 
   constructor(
-    private router: Router,
-    private authService: AuthService) {
-  }
+              private router: Router,
+              private authService: AuthService) {}
 
-  canActivate( routeSnapshot: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    if (!this.authService.isAuthenticated) {
-      this.router.navigate(['/login']);
-    }
-
-    return true;
+  canActivate( routeSnapshot: ActivatedRouteSnapshot, 
+               state: RouterStateSnapshot) {
+        if (this.authService.isAuthenticated) {
+            return true;
+        }
+        this.router.navigateByUrl('login');
+        return false;
   }
 }

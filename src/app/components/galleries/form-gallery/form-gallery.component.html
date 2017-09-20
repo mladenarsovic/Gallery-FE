@@ -1,49 +1,43 @@
 
 <h2>Create new gallery</h2>
 
-<form class="galleryForm" (ngSubmit)="addGallery(newGalery)">         
+<form class="galleryForm" (ngSubmit)="addGallery(newGallery)">         
           
         <div class="form-group">
             <label for="name">Name</label>
-            <input [(ngModel)]="newGalery.name" type="text" class="form-control" id="name" name="name">
+            <input #name="ngModel" [(ngModel)]="newGallery.name" type="text" class="form-control" id="name" name="name" required minlenght="2" maxlength="255">
         </div>
+
+        <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+                <div *ngIf="name.errors.required">
+                  Name is required.
+                </div>
+                <div *ngIf="name.errors.minlength">
+                  Name must be at least 3 characters long.
+                </div>
+                <div *ngIf="name.errors.maxlength">
+                  Name can't be more than 255 characters long.
+                </div>
+        </div>
+
+
+
         <div class="form-group">
             <label for="description">Description</label>
-            <input [(ngModel)]="newGalery.description" type="text" class="form-control" id="description" name="description" >
+            <input [(ngModel)]="newGallery.description" type="text" class="form-control" id="description" name="description" >
         </div>
     
-        <div class="form-group">
+        <div class="form-group" *ngFor="let item of galleryUrl; let index = index; trackBy:trackByIndex;">
             <label for="image-url">Add an image</label>
             <div class="input-group">
-                <span class="input-group-btn">
-                        <button class="input-group-addon btn" type="button">Up</button>
-                  </span>
-                  <span class="input-group-btn">
-                        <button class="input-group-addon btn" type="button">Down</button>
-                  </span>
-    
-                  <input type="text" id="image-url" name="image-url" class="form-control" placeholder="image url">
-                  <span class="input-group-btn">
-                    <button class="input-group-addon btn btn-danger" type="button">Remove</button>
-                </span>
+                    <input #url="ngModel"  [(ngModel)]="galleryUrl[index]" name='gallery{{index}}' placeholder="Image Url" type="text" class="form-control" required >                    
+                    <button *ngIf="number <= 10" type="button" (click)="addItem()" class="btn btn-primary">Add</button>
+                    <button *ngIf="number > 1" type="button" (click)="removeItem()" class="btn btn-danger">Remove</button>
             </div>
         </div>
         
-        <div class="form-group">
-            <button type="button" class="input-group-addon btn btn-outline-primary btn-block">Add another image</button>
-        </div>
-    
-        <hr>
-    
-        <div class="row">
-            <div class="form-group col">
-                <button type="submit" class="btn btn-outline-primary btn-block form-control">Cancel</button>
-            </div>
-    
-            <div class="form-group col">
-                <button type="submit" class="btn btn-primary btn-block">Submit</button>
-            </div>
-        </div>
+        <button  type="submit" class="btn btn-primary">Submit</button>
+        
     
         
     </form>

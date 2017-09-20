@@ -1,13 +1,13 @@
 <div class="container marketing">        
     
-    <div class="row">
+    <div *ngIf="gallery" class="row">
         <div class="col-lg-12 middle">
-           <a routerLink="{{ galleryRow.id }}"> <h2>{{ galleryRow.name }}</h2></a>
-           <a routerLink="{{ galleryRow.id }}"><img  src="{{ galleryRow.images[0].image_url }}" alt="{{ galleryRow.name }}" width="300" height="200"></a><br/><br/>
+           <a routerLink="{{ gallery.id }}"> <h2>{{ gallery.name }}</h2></a>
+           <a routerLink="{{ gallery.id }}"><img  src="{{ gallery.imagesUrl[0].image_url }}" alt="{{ gallery.name }}" width="300" height="200"></a><br/><br/>
             
             <h3>Description:</h3>
-            <p>{{ galleryRow.description }}</p><hr/>
-            <!-- <p><a class="btn btn-secondary"  [routerLink]="['/gallery', gallery.id]" role="button">View details &raquo;</a></p> -->
+            <p>{{ gallery.description }}</p>
+            <p><a class="btn btn-secondary"  [routerLink]="['/gallery', gallery.id]" role="button">View details &raquo;</a></p><hr/>
         </div>
     
 </div>

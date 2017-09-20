@@ -1,52 +1,59 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
+import { HttpClientModule } from '@angular/common/http';
 import { CustomFormsModule } from 'ng2-validation'
 
+import { GalleriesService } from './shared/services/galleries.service';
+import { UsersService } from './shared/services/users.service';
+import { AuthService } from './shared/services/auth.service';
+import { ImagesService } from './shared/services/images.service'; 
+import { CommentsService } from './shared/services/comments.service'; 
+
 import { AppComponent } from './app.component';
-import { LayoutComponent } from './components/layout/layout.component';
 import { GalleriesComponent } from './components/galleries/galleries.component';
-import { LoginComponent } from './components/login/login.component';
+import { CommentsComponent } from './components/comments/comments.component';
+import { LayoutComponent } from './components/layout/layout.component';
 import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/login/login.component';
 import { FormGalleryComponent } from './components/galleries/form-gallery/form-gallery.component';
 import { GalleriesRowComponent } from './components/galleries/galleries-row/galleries-row.component';
-
-import { GalleriesService } from './shared/services/galleries.service';
-import { AuthService } from './shared/services/auth.service';
-import { UsersService } from './shared/services/users.service';
-import { CommentsService } from './shared/services/comments.service';
-import { FilterPipe } from './shared/pipes/filter.pipe';
 import { SingleGalleryComponent } from './components/galleries/single-gallery/single-gallery.component';
 import { MyGalleryComponent } from './components/galleries/my-gallery/my-gallery.component';
-import { CommentsComponent } from './components/comments/comments.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    GalleriesComponent,  
+    CommentsComponent,
     LayoutComponent,
-    GalleriesComponent,
-    LoginComponent,
     RegisterComponent,
+    LoginComponent,
     FormGalleryComponent,
-    FilterPipe,
     GalleriesRowComponent,
     SingleGalleryComponent,
-    MyGalleryComponent,
-    CommentsComponent    
+    MyGalleryComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
-    HttpClientModule,
     SharedModule,
+    HttpClientModule,
+    FormsModule,
     CustomFormsModule
+
   ],
-  providers: [GalleriesService, AuthService, UsersService, CommentsService],
+  providers: [
+    GalleriesService,
+    UsersService,
+    AuthService,
+    ImagesService,
+    CommentsService  
+  ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

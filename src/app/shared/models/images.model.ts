@@ -5,3 +5,4 @@ export class Images {
         public galleryId?: number,
     ){}
 }
+

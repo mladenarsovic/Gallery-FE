@@ -1,6 +1,6 @@
 import { Users } from './users.model'; 
 import { Images } from './images.model'; 
-import { Comment } from './comment.model';
+import { Comments } from './comments.model';
 
 export class Gallery{
     constructor(
@@ -9,7 +9,7 @@ export class Gallery{
         public description?: string,
         public user?: Users,
         public imagesUrl?: Images[],
-        public comments?: Comment[],
+        public comments?: Comments[],
         public userId?: number,
     ){}
 }

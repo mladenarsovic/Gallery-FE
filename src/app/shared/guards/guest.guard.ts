@@ -7,15 +7,16 @@ import { AuthService } from '../services/auth.service';
 export class GuestGuard implements CanActivate {
 
   constructor(
-    private router: Router,
-    private authService: AuthService) {
+              private router: Router,
+              private authService: AuthService) {
   }
 
-  canActivate( routeSnapshot: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    if (this.authService.isAuthenticated) {
-      this.router.navigate(['/galleries']);
-    }
-
-    return true;
+  canActivate( routeSnapshot: ActivatedRouteSnapshot, 
+               state: RouterStateSnapshot) {
+      if (!this.authService.isAuthenticated){
+          return true;
+      }
+      this.router.navigateByUrl('');
+      return false;
   }
 }

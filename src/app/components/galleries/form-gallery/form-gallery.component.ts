@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { GalleriesService } from '../../../shared/services/galleries.service';
 import { AuthService } from '../../../shared/services/auth.service';
 import { Gallery } from '../../../shared/models/gallery.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form-gallery',
@@ -12,34 +13,39 @@ import { Gallery } from '../../../shared/models/gallery.model';
 
 export class FormGalleryComponent implements OnInit {
 
-    private newGalery: Gallery  = new Gallery();
-  
-    private galeryUrl: string[] = [""];
+    private newGallery: Gallery  = new Gallery();  
+    private galleryUrl: string[] = [""];
     private number: number = 1;
 
   constructor(private galleryService: GalleriesService,
-              private authService: AuthService) { }
+              private authService: AuthService,
+              private router: Router) {}
 
   addItem(){
-    this.galeryUrl.push('');
+    this.galleryUrl.push('');
     this.number ++;
   }
 
   removeItem(){
-    this.galeryUrl.pop();
+    this.galleryUrl.pop();
     this.number --;
+  }
+
+  trackByIndex(index: number, obj:any):any {
+    return index;
   }
 
   addGallery(newGallery){
     const user = this.authService.getUser();
     newGallery.userId = user.id;
+    newGallery.imagesUrl = this.galleryUrl;
     this.galleryService.addGallery(newGallery).subscribe();
-    this.galeryUrl.forEach((images) => {
-       this.galleryService.addImagesOnGallery(images).subscribe();
-    });
   }
 
   ngOnInit() {
   }
 
+  edit(gallery: Gallery) {
+    this.newGallery = Object.assign({}, gallery);
+  }
 }
